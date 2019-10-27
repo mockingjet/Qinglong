@@ -1,0 +1,24 @@
+.sub_title{
+  text-align: center;
+  font-size: 1.1875rem;
+  color: #FFFFFF; 
+}
+.main_title{
+  text-align: center; 
+  font-size: 2rem; 
+  color: #AAAAAA;
+}
+  .info li p{
+    font-size:14px;
+  }
+@media (max-width:900px) {
+  .i-amphtml-element,.i-amphtml-layout-intrinsic,.i-amphtml-layout-size-defined,.i-amphtml-layout {
+    width:100%;
+  }
+  .info li p{
+    font-size:13px;
+  }
+  .share-tools{
+    padding-right:20px !important;
+  }
+}
