@@ -42,7 +42,7 @@ class Section3 extends React.Component {
 
           </div>
           <div class="bBox">
-            <div class="imgBox imgBox3 hidden">
+            <div class="imgBox imgBox3 hidden" style={{ animationDuration: "1s" }}>
               <amp-img
                 src="https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/f4d4389fbf7899c0b2f2cd516b0ed4ea_normal.jpg"
                 width={this.state.width} height={this.state.height} layout="intrinsic" />

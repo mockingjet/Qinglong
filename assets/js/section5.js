@@ -34,7 +34,7 @@ class Section5 extends React.Component {
               理事主席-張厚深</h3>
           </div>
           <div class="bBox">
-            <div class="imgBox imgBox5 hidden">
+            <div class="imgBox imgBox5 hidden" style={{ animationDuration: "1s" }}>
               <amp-img
                 src="https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/68728b21c9c6eb62583cd6c100d508f1_normal.jpg"
                 width="640" height="550" layout="intrinsic" />
