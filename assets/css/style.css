@@ -22,3 +22,6 @@
     padding-right:20px !important;
   }
 }
+.hidden{
+  visibility: hidden;
+}

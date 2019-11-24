@@ -1,4 +1,29 @@
 class Section4 extends React.Component {
+
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+
+  isBottom(el) {
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
+  }
+
+  trackScrolling = () => {
+    const wrappedElement = document.querySelector('.imgBox4');
+    if (this.isBottom(wrappedElement)) {
+      console.log('header bottom reached');
+      wrappedElement.classList.remove('hidden')
+      wrappedElement.classList.add('bounceIn')
+      document.removeEventListener('scroll', this.trackScrolling);
+    }
+  };
+
+
   render() {
     return (
       <section id="goto86230" class="section-base about_us_box background-setting bg_translucent_k"
@@ -11,7 +36,7 @@ class Section4 extends React.Component {
               熱烈銷售中</h3>
           </div>
           <div class="bBox">
-            <div class="imgBox">
+            <div class="imgBox imgBox4 hidden">
               <amp-img
                 src="https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/548e357716f49f3d964de8d75c419e81_normal.jpg"
                 width="640" height="350" layout="intrinsic" />

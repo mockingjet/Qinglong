@@ -1,4 +1,28 @@
 class Section5 extends React.Component {
+
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+
+  isBottom(el) {
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
+  }
+
+  trackScrolling = () => {
+    const wrappedElement = document.querySelector('.imgBox5');
+    if (this.isBottom(wrappedElement)) {
+      console.log('header bottom reached');
+      wrappedElement.classList.remove('hidden')
+      wrappedElement.classList.add('bounceIn')
+      document.removeEventListener('scroll', this.trackScrolling);
+    }
+  };
+
   render() {
     return (
       <section id="goto56498" class="section-base about_us_box background-setting"
@@ -10,7 +34,7 @@ class Section5 extends React.Component {
               理事主席-張厚深</h3>
           </div>
           <div class="bBox">
-            <div class="imgBox">
+            <div class="imgBox imgBox5 hidden">
               <amp-img
                 src="https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/68728b21c9c6eb62583cd6c100d508f1_normal.jpg"
                 width="640" height="550" layout="intrinsic" />

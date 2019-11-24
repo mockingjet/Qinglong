@@ -5,6 +5,31 @@ class Section3 extends React.Component {
     height: window.innerWidth > 600 ? 400 : 300
   };
 
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+
+  isBottom(el) {
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
+  }
+
+  trackScrolling = () => {
+    const wrappedElement = document.querySelector('.imgBox3');
+    if (this.isBottom(wrappedElement)) {
+      console.log('header bottom reached');
+      wrappedElement.classList.remove('hidden')
+      wrappedElement.classList.add('bounceIn')
+      document.removeEventListener('scroll', this.trackScrolling);
+    }
+  };
+
+
+
   render() {
     return (
       <section id="goto86252" class="section-base about_us_box background-setting bg_translucent_k"
@@ -17,7 +42,7 @@ class Section3 extends React.Component {
 
           </div>
           <div class="bBox">
-            <div class="imgBox">
+            <div class="imgBox imgBox3 hidden">
               <amp-img
                 src="https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/f4d4389fbf7899c0b2f2cd516b0ed4ea_normal.jpg"
                 width={this.state.width} height={this.state.height} layout="intrinsic" />
