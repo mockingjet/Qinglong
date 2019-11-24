@@ -7,7 +7,7 @@ class Section3 extends React.Component {
 
 
   componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
+    document.addEventListener('scroll', _.debounce(this.trackScrolling, 100));
   }
 
   componentWillUnmount() {
@@ -18,13 +18,24 @@ class Section3 extends React.Component {
     return el.getBoundingClientRect().bottom <= window.innerHeight;
   }
 
+  outOfBottom(el) {
+    return el.getBoundingClientRect().bottom * 2 < -window.innerHeight / 2;
+  }
+
   trackScrolling = () => {
     const wrappedElement = document.querySelector('.imgBox3');
+    const wrappedTitle = document.querySelector('.main_title3')
+
     if (this.isBottom(wrappedElement)) {
       console.log('header bottom reached');
       wrappedElement.classList.remove('hidden')
       wrappedElement.classList.add('bounceIn')
+      wrappedTitle.classList.add('animated', 'pulse')
+
       document.removeEventListener('scroll', this.trackScrolling);
+    }
+    if (this.outOfBottom(wrappedElement)) {
+      wrappedTitle.classList.remove('animated', 'pulse')
     }
   };
 
@@ -36,7 +47,7 @@ class Section3 extends React.Component {
         style={{ backgroundImage: "url(https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/8a59de351718171a3f30c0740d30fe8b_normal.jpg)" }}>
         <div class="ContentsBox clearfix">
           <div class="tBox">
-            <h3 class="main_title">
+            <h3 class="main_title main_title3">
               主要產銷商品為番石榴<br />
               另外也有其他品項</h3>
 

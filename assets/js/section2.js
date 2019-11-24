@@ -1,9 +1,7 @@
 class Section2 extends React.Component {
 
-
-
   componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
+    document.addEventListener('scroll', _.debounce(this.trackScrolling, 100));
   }
 
   componentWillUnmount() {
@@ -14,13 +12,21 @@ class Section2 extends React.Component {
     return el.getBoundingClientRect().bottom <= window.innerHeight;
   }
 
+  outOfBottom(el) {
+    return el.getBoundingClientRect().bottom * 2 < -window.innerHeight / 2;
+  }
   trackScrolling = () => {
     const wrappedElement = document.querySelector('.imgBox2');
+    const wrappedTitle = document.querySelector('.main_title2')
+    console.log("scrolling")
     if (this.isBottom(wrappedElement)) {
-      console.log('header bottom reached');
       wrappedElement.classList.remove('hidden')
       wrappedElement.classList.add('bounceIn')
-      document.removeEventListener('scroll', this.trackScrolling);
+      wrappedTitle.classList.add('animated', 'pulse')
+      // document.removeEventListener('scroll', this.trackScrolling);
+    }
+    if (this.outOfBottom(wrappedElement)) {
+      wrappedTitle.classList.remove('animated', 'pulse')
     }
   };
 
@@ -30,7 +36,7 @@ class Section2 extends React.Component {
         style={{ backgroundImage: "url(https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/13c39ccd2de871786cca357560ff84da_normal.jpg)" }}>
         <div class="ContentsBox clearfix">
           <div class="tBox">
-            <h3 class="main_title">
+            <h3 class="main_title main_title2">
               80位果農<br />
               100公頃種植面積</h3>
           </div>

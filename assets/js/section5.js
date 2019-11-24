@@ -2,7 +2,7 @@ class Section5 extends React.Component {
 
 
   componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
+    document.addEventListener('scroll', _.debounce(this.trackScrolling, 100));
   }
 
   componentWillUnmount() {
@@ -13,13 +13,23 @@ class Section5 extends React.Component {
     return el.getBoundingClientRect().bottom <= window.innerHeight;
   }
 
+  outOfBottom(el) {
+    return el.getBoundingClientRect().bottom * 2 < -window.innerHeight / 2;
+  }
+
   trackScrolling = () => {
     const wrappedElement = document.querySelector('.imgBox5');
+    const wrappedTitle = document.querySelector('.main_title5')
+
     if (this.isBottom(wrappedElement)) {
       console.log('header bottom reached');
       wrappedElement.classList.remove('hidden')
       wrappedElement.classList.add('bounceIn')
+      wrappedTitle.classList.add('animated', 'pulse')
       document.removeEventListener('scroll', this.trackScrolling);
+    }
+    if (this.outOfBottom(wrappedElement)) {
+      wrappedTitle.classList.remove('animated', 'pulse')
     }
   };
 
@@ -29,7 +39,7 @@ class Section5 extends React.Component {
         style={{ backgroundImage: "url(https://img.holkee.com/site/theme/unknown/fa695fab69b265db3b5a47f6cd658377_normal.jpg)" }}>
         <div class="ContentsBox clearfix">
           <div class="tBox">
-            <h3 class="main_title">
+            <h3 class="main_title main_title5">
               關於他的一些故事<br />
               理事主席-張厚深</h3>
           </div>
