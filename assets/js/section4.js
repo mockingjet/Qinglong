@@ -27,7 +27,7 @@ class Section4 extends React.Component {
       wrappedElement.classList.add('bounceIn')
       wrappedTitle.classList.add('animated', 'pulse')
 
-      document.removeEventListener('scroll', this.trackScrolling);
+      // document.removeEventListener('scroll', this.trackScrolling);
     }
     if (this.outOfBottom(wrappedElement)) {
       wrappedTitle.classList.remove('animated', 'pulse')
