@@ -27,8 +27,9 @@ class Section3 extends React.Component {
     const wrappedTitle = document.querySelector('.main_title3')
 
     if (this.isBottom(wrappedElement)) {
-      console.log('header bottom reached');
-      wrappedElement.classList.remove('hidden')
+      setTimeout(() => {
+        wrappedElement.classList.remove('hidden')
+      }, 500)
       wrappedElement.classList.add('bounceIn')
       wrappedTitle.classList.add('animated', 'pulse')
 
@@ -53,7 +54,7 @@ class Section3 extends React.Component {
 
           </div>
           <div class="bBox">
-            <div class="imgBox imgBox3 hidden" style={{ animationDuration: "1s" }}>
+            <div class="imgBox imgBox3 hidden" style={{ animationDuration: "1.5s", animationDelay: "0.5s" }}>
               <amp-img
                 src="https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/f4d4389fbf7899c0b2f2cd516b0ed4ea_normal.jpg"
                 width={this.state.width} height={this.state.height} layout="intrinsic" />

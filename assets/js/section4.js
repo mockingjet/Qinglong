@@ -22,8 +22,9 @@ class Section4 extends React.Component {
     const wrappedTitle = document.querySelector('.main_title4')
 
     if (this.isBottom(wrappedElement)) {
-      console.log('header bottom reached');
-      wrappedElement.classList.remove('hidden')
+      setTimeout(() => {
+        wrappedElement.classList.remove('hidden')
+      }, 500)
       wrappedElement.classList.add('bounceIn')
       wrappedTitle.classList.add('animated', 'pulse')
 
@@ -47,7 +48,7 @@ class Section4 extends React.Component {
               熱烈銷售中</h3>
           </div>
           <div class="bBox">
-            <div class="imgBox imgBox4 hidden" style={{ animationDuration: "1s" }}>
+            <div class="imgBox imgBox4 hidden" style={{ animationDuration: "1.5s", animationDelay: "0.5s" }}>
               <amp-img
                 src="https://img.holkee.com/site/upload/5d2ed5d8-5550ws3ab-67f7-bfc96146/548e357716f49f3d964de8d75c419e81_normal.jpg"
                 width="640" height="350" layout="intrinsic" />
