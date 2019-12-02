@@ -28,9 +28,9 @@ class Section7 extends React.Component {
                 <p class="time">平日9:00am —5:00pm | 週六9:00am —4:00pm | 周日公休</p>
               </li>
               <li>
-                <p class="email"><a class="ana-button-click" href="mailto:service@example.com"
+                <p class="email"><a class="ana-button-click" href="mailto:chinglong886@pchome.com.tw"
                   data-vars-event-category="contact"
-                  data-vars-event-label="service@example.com">service@example.com</a></p>
+                  data-vars-event-label="chinglong886@pchome.com.tw">chinglong886@pchome.com.tw</a></p>
               </li>
             </ul>
           </div>
