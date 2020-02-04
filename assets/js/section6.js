@@ -19,7 +19,6 @@ class Section6 extends React.Component {
     const wrappedElement = document.querySelector('.main_title6');
 
     if (this.isBottom(wrappedElement)) {
-      console.log('header bottom reached');
       wrappedElement.classList.add('animated', 'pulse')
       // document.removeEventListener('scroll', this.trackScrolling);
 

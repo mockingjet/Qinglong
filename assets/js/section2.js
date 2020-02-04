@@ -18,7 +18,6 @@ class Section2 extends React.Component {
   trackScrolling = () => {
     const wrappedElement = document.querySelector('.imgBox2');
     const wrappedTitle = document.querySelector('.main_title2')
-    console.log("scrolling")
     if (this.isBottom(wrappedElement)) {
       setTimeout(() => {
         wrappedElement.classList.remove('hidden')
